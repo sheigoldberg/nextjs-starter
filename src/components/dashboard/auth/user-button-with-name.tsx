@@ -1,0 +1,23 @@
+'use client';
+
+import { useSession } from 'next-auth/react';
+
+import { ModeToggle } from '@/components/ui';
+import { AuthButton } from '@/lib/auth';
+
+const profileMenuItems = [
+  { label: 'Profile', href: '/profile' },
+  { label: 'Public Site', href: '/' },
+];
+
+export function DashboardUserButton() {
+  const { data: session } = useSession();
+
+  return (
+    <div className="flex w-full items-center justify-between gap-2">
+      {session?.user?.name && <span className="flex-none font-medium">{session.user.name}</span>}
+      <ModeToggle />
+      <AuthButton className="flex-none" profileMenuItems={profileMenuItems} />
+    </div>
+  );
+}
