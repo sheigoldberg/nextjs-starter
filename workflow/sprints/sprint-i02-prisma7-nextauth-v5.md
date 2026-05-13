@@ -77,6 +77,7 @@ The starter ships with Prisma 5 and NextAuth v4. Both have major version upgrade
 - `prisma.config.ts` — new file: `defineConfig` with `DATABASE_URL` datasource override
 - `prisma/schema.prisma` — remove `output` directive from generator block; remove `url` from datasource block (Prisma 7 requires URL via `prisma.config.ts` only); keep `provider`
 - `src/lib/db.ts` — migrate to `PrismaNeon` adapter pattern
+- `src/auth.ts` — new file: `NextAuth(authOptions)` init; exports `handlers`, `auth`, `signIn`, `signOut`
 - `src/lib/auth/auth-options.ts` — `NextAuthOptions` → `NextAuthConfig`; adapter import; JWT callback signatures
 - `src/app/api/auth/[...nextauth]/route.ts` — v5 `handlers` export pattern
 - `src/middleware.ts` — pass `secret` to `getToken()`; typed `UserRole[]` role checks
@@ -107,18 +108,18 @@ The starter ships with Prisma 5 and NextAuth v4. Both have major version upgrade
   - [x] I02.5.2 Replace `@next-auth/prisma-adapter` with `@auth/prisma-adapter@^2.0.0`
   - [x] I02.5.3 Pin `@auth/core@0.41.2` override in `package.json` to resolve peer conflicts
   - [x] I02.5.4 Run `npm install` and confirm no unresolved peer dependency errors
-- [ ] I02.6 Update auth config (`src/lib/auth/auth-options.ts`)
-  - [ ] I02.6.1 Update adapter import from `@next-auth/prisma-adapter` → `@auth/prisma-adapter`
-  - [ ] I02.6.2 Replace `NextAuthOptions` type with `NextAuthConfig`
-  - [ ] I02.6.3 Update JWT callback signatures to match v5 API
-- [ ] I02.7 Update route handler and middleware
-  - [ ] I02.7.1 Rewrite `src/app/api/auth/[...nextauth]/route.ts` to use v5 `handlers` export pattern
-  - [ ] I02.7.2 Update `src/middleware.ts` — pass `secret` to `getToken()`
-  - [ ] I02.7.3 Update `src/middleware.ts` — typed `UserRole[]` role checks
-- [ ] I02.8 Update session helpers and type declarations
-  - [ ] I02.8.1 Update `src/lib/auth/` session helpers to `NextAuth(config)` init pattern
-  - [ ] I02.8.2 Ensure `getSession()` wrapper and `getCurrentUser()` are compatible with v5
-  - [ ] I02.8.3 Verify `src/types/next-auth.d.ts` module augmentation paths are unchanged in v5
+- [x] I02.6 Update auth config (`src/lib/auth/auth-options.ts`)
+  - [x] I02.6.1 Update adapter import from `@next-auth/prisma-adapter` → `@auth/prisma-adapter`
+  - [x] I02.6.2 Replace `NextAuthOptions` type with `NextAuthConfig`
+  - [x] I02.6.3 Update JWT callback signatures to match v5 API
+- [x] I02.7 Update route handler and middleware
+  - [x] I02.7.1 Rewrite `src/app/api/auth/[...nextauth]/route.ts` to use v5 `handlers` export pattern
+  - [x] I02.7.2 Update `src/middleware.ts` — pass `secret` to `getToken()`
+  - [x] I02.7.3 Update `src/middleware.ts` — typed `UserRole[]` role checks
+- [x] I02.8 Update session helpers and type declarations
+  - [x] I02.8.1 Update `src/lib/auth/` session helpers to `NextAuth(config)` init pattern
+  - [x] I02.8.2 Ensure `getSession()` wrapper and `getCurrentUser()` are compatible with v5
+  - [x] I02.8.3 Verify `src/types/next-auth.d.ts` module augmentation paths are unchanged in v5
 - [ ] I02.9 Update env vars and `.env.example`
   - [ ] I02.9.1 Rename `NEXTAUTH_SECRET` → `AUTH_SECRET` in `.env.example`
   - [ ] I02.9.2 Update `CLAUDE.md` stack reference (Prisma 5 → 7, NextAuth v4 → v5)
