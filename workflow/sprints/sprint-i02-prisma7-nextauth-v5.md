@@ -88,9 +88,9 @@ The starter ships with Prisma 5 and NextAuth v4. Both have major version upgrade
 
 ## Tasks
 
-- [ ] I02.1 Upgrade Prisma packages to v7
+- [x] I02.1 Upgrade Prisma packages to v7
   - [x] I02.1.1 Bump `prisma` and `@prisma/client` to `^7.0.0` in `package.json`
-  - [ ] I02.1.2 Add `@prisma/adapter-neon@^7.0.0` to `package.json` dependencies
+  - [x] I02.1.2 Add `@prisma/adapter-neon@^7.0.0` to `package.json` dependencies
 - [ ] I02.2 Add `prisma.config.ts` and update `prisma/schema.prisma`
   - [ ] I02.2.1 Create `prisma.config.ts` at project root using `defineConfig` with `DATABASE_URL` datasource override
   - [ ] I02.2.2 Remove `output` directive from the `generator client` block in `prisma/schema.prisma`
