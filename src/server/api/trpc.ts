@@ -1,11 +1,10 @@
 import { TRPCError, initTRPC } from '@trpc/server';
 import { type PrismaClient } from '@prisma/client';
-import { getServerSession } from 'next-auth';
 import superjson from 'superjson';
 import { ZodError } from 'zod';
 
+import { auth } from '@/auth';
 import { prisma } from '@/lib/db';
-import { authOptions } from '@/lib/auth/auth-options';
 
 type CreateContextOptions = {
   session: {
@@ -23,7 +22,7 @@ export const createInnerTRPCContext = (opts: CreateContextOptions) => {
 };
 
 export const createTRPCContext = async (_req: Request) => {
-  const session = await getServerSession(authOptions);
+  const session = await auth();
 
   return createInnerTRPCContext({
     session: session

@@ -1,9 +1,8 @@
-import { getServerSession } from 'next-auth';
-import { authOptions } from '@/lib/auth/auth-options';
+import { auth } from '@/auth';
 import { PageHeader } from '@/components/dashboard';
 
 export default async function DashboardPage() {
-  const session = await getServerSession(authOptions);
+  const session = await auth();
 
   return (
     <div className="space-y-6">
