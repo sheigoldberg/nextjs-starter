@@ -75,7 +75,7 @@ The starter ships with Prisma 5 and NextAuth v4. Both have major version upgrade
 
 - `package.json` — bump prisma, next-auth packages; add `@auth/core` override
 - `prisma.config.ts` — new file: `defineConfig` with `DATABASE_URL` datasource override
-- `prisma/schema.prisma` — remove `output` directive from generator block; keep `datasource db` block
+- `prisma/schema.prisma` — remove `output` directive from generator block; remove `url` from datasource block (Prisma 7 requires URL via `prisma.config.ts` only); keep `provider`
 - `src/lib/db.ts` — migrate to `PrismaNeon` adapter pattern
 - `src/lib/auth/auth-options.ts` — `NextAuthOptions` → `NextAuthConfig`; adapter import; JWT callback signatures
 - `src/app/api/auth/[...nextauth]/route.ts` — v5 `handlers` export pattern
@@ -99,9 +99,9 @@ The starter ships with Prisma 5 and NextAuth v4. Both have major version upgrade
   - [x] I02.3.1 Import `PrismaNeon` from `@prisma/adapter-neon` and `neon` from `@neondatabase/serverless`
   - [x] I02.3.2 Replace direct `new PrismaClient()` with adapter-based instantiation using `PrismaNeon`
   - [x] I02.3.3 Verify `log` array and singleton pattern are unchanged
-- [ ] I02.4 Verify Prisma generates and pushes cleanly
-  - [ ] I02.4.1 Run `npm run db:generate` and confirm client generates with no errors
-  - [ ] I02.4.2 Run `npm run db:push` against a dev database and confirm schema applies correctly
+- [x] I02.4 Verify Prisma generates and pushes cleanly
+  - [x] I02.4.1 Run `npm run db:generate` and confirm client generates with no errors
+  - [x] I02.4.2 Run `npm run db:push` against a dev database and confirm schema applies correctly — N/A: starter template uses placeholder DATABASE_URL; skipped
 - [ ] I02.5 Upgrade NextAuth packages to v5
   - [ ] I02.5.1 Bump `next-auth` to `^5.0.0` in `package.json` (resolves to `5.0.0-beta.31`)
   - [ ] I02.5.2 Replace `@next-auth/prisma-adapter` with `@auth/prisma-adapter@^2.0.0`
