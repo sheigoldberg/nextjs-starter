@@ -32,7 +32,7 @@ export const authOptions: NextAuthConfig = {
       if (user) {
         return {
           ...token,
-          id: user.id,
+          id: user.id as string,
           role: user.role,
           accessToken: account?.access_token,
           refreshToken: account?.refresh_token,

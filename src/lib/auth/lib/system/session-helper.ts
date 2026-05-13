@@ -4,9 +4,10 @@
  * This module provides utilities for integrating the permission system
  * with NextAuth sessions, including caching and session management.
  */
-import { Session, getServerSession, type NextAuthOptions } from 'next-auth';
+import { Session } from 'next-auth';
 import { UserRole } from '@prisma/client';
 
+import { auth } from '@/auth';
 import {
   PermissionContext,
   SessionPermissions,
@@ -14,21 +15,8 @@ import {
 } from '../../types/system';
 import { getPrismaClient } from '../rbac/prisma-client';
 
-// Dependency injection for authOptions (similar to Prisma client pattern)
-let authOptionsGetter: (() => NextAuthOptions) | null = null;
-
-export function setAuthOptions(getter: () => NextAuthOptions): void {
-  authOptionsGetter = getter;
-}
-
-function getAuthOptions(): NextAuthOptions {
-  if (!authOptionsGetter) {
-    throw new Error(
-      'Auth options not initialized. Call setAuthOptions() in server/trpc.ts during app initialization.'
-    );
-  }
-  return authOptionsGetter();
-}
+// No-op kept for backwards compatibility — no longer needed with NextAuth v5
+export function setAuthOptions(_getter: unknown): void {}
 
 /**
  * Enhanced session type with permissions
@@ -46,7 +34,7 @@ const PERMISSION_CACHE_DURATION = 5 * 60 * 1000;
  * Get current user session with permission caching
  */
 export async function getCurrentSession(): Promise<EnhancedSession | null> {
-  const session = await getServerSession(getAuthOptions());
+  const session = await auth();
   if (!session?.user?.email) return null;
 
   // Check if we have cached permissions
