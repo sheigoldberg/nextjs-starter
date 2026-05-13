@@ -102,11 +102,11 @@ The starter ships with Prisma 5 and NextAuth v4. Both have major version upgrade
 - [x] I02.4 Verify Prisma generates and pushes cleanly
   - [x] I02.4.1 Run `npm run db:generate` and confirm client generates with no errors
   - [x] I02.4.2 Run `npm run db:push` against a dev database and confirm schema applies correctly — N/A: starter template uses placeholder DATABASE_URL; skipped
-- [ ] I02.5 Upgrade NextAuth packages to v5
-  - [ ] I02.5.1 Bump `next-auth` to `^5.0.0` in `package.json` (resolves to `5.0.0-beta.31`)
-  - [ ] I02.5.2 Replace `@next-auth/prisma-adapter` with `@auth/prisma-adapter@^2.0.0`
-  - [ ] I02.5.3 Pin `@auth/core@0.41.2` override in `package.json` to resolve peer conflicts
-  - [ ] I02.5.4 Run `npm install` and confirm no unresolved peer dependency errors
+- [x] I02.5 Upgrade NextAuth packages to v5
+  - [x] I02.5.1 Bump `next-auth` to `^5.0.0` in `package.json` (resolves to `5.0.0-beta.31`)
+  - [x] I02.5.2 Replace `@next-auth/prisma-adapter` with `@auth/prisma-adapter@^2.0.0`
+  - [x] I02.5.3 Pin `@auth/core@0.41.2` override in `package.json` to resolve peer conflicts
+  - [x] I02.5.4 Run `npm install` and confirm no unresolved peer dependency errors
 - [ ] I02.6 Update auth config (`src/lib/auth/auth-options.ts`)
   - [ ] I02.6.1 Update adapter import from `@next-auth/prisma-adapter` → `@auth/prisma-adapter`
   - [ ] I02.6.2 Replace `NextAuthOptions` type with `NextAuthConfig`
