@@ -1,82 +1,66 @@
-# Project Backlog
+# nextjs-starter Backlog
 
-Track planned work as **sprints** — milestone-sized slices of work. Simple sprints can live entirely in this file. When a sprint needs a full spec plus a Granular checklist, add a **sprint detail** document under `workflow/sprints/` (often by running `/sprint-plan` per [`commands/sprint-plan.md`](commands/sprint-plan.md)). Execute detail docs with `/sprint-execute` per [`commands/sprint-execute.md`](commands/sprint-execute.md).
+Work is organised into sprints. Each sprint has a clear goal and numbered tasks.
+Sprint IDs use type-prefixed notation — `F01` = Feature sprint 01, `I01` = Infrastructure sprint 01.
+When a sprint is fully complete, move it to `workflow/complete.md`.
 
----
+**Statuses:** `IN FLIGHT` | `READY` | `NOT STARTED` | `BLOCKED` | `PARKED`
 
-## How to use this workflow (starter template)
+**Sprint types:** `F` Feature | `I` Infrastructure | `B` Bug fix | `D` Documentation | `C` Client
 
-1. **Add or edit sprints** in the [Current sprints](#current-sprints) section below. Each sprint has a **Goal** and optional milestone checkboxes.
-2. **Pick a sprint ID** when you want structured naming and filenames. Prefix letters group the kind of work (see [Sprint ID prefixes](#sprint-id-prefixes)).
-3. **Optional detail doc** — For non-trivial work, create `workflow/sprints/sprint-<id>-<slug>.md` using the format in [`commands/sprint-plan.md`](commands/sprint-plan.md). Link it from the backlog with `**Sprint detail:**`.
-4. **Execute** — Work through tasks in order. If you use a detail doc, it is the single source of truth for the granular task list.
-5. **Finish** — Mark the sprint `DONE` in the backlog when the goal and definition of done are met.
+**Sequencing:** Sprints run one at a time regardless of type. The next sprint to start is the lowest-ID unblocked sprint. Cross-type blocking is noted in the `**Blocked by:**` field.
 
-**Rule:** Sprints are meant to run **in order**. Do not start the next sprint until the current one is `DONE` (unless you consciously parallelize — this template assumes one track).
+**Timestamps:** `Created` = when the sprint was added to the backlog. `Updated` = last meaningful change to scope or tasks. `Completed` = when all tasks were signed off (empty if not yet complete).
 
----
+**Slash commands:** `/sprint-plan` to create a detail doc | `/sprint-execute` to run one
 
-## Status values
-
-| Status | Meaning |
-|--------|---------|
-| `NOT STARTED` | Captured but not begun. |
-| `READY` | Unblocked; can be picked up next. |
-| `IN FLIGHT` | Active work — prefer showing **remaining** tasks only in summaries. |
-| `BLOCKED` | Waiting on a dependency — say what. |
-| `PARKED` | Intentionally deferred. |
-| `DONE` | Completed and accepted. |
+**Current execution sequence:** I02
 
 ---
 
-## Sprint ID prefixes
+## Infrastructure Sprints
 
-Use these prefixes in sprint IDs when you want filenames and task numbering to reflect type (see [`commands/sprint-plan.md`](commands/sprint-plan.md)).
+### I02 — Infrastructure Upgrade: Prisma 7 + NextAuth v5
 
-| Prefix | Type | Examples |
-|--------|------|----------|
-| `F` | Feature — new user-facing functionality | F01, F02 |
-| `I` | Infrastructure — upgrades, tooling, refactors | I01 |
-| `B` | Bug fix | B01 |
-| `D` | Documentation / ADRs | D01 |
-| `C` | Client-specific delivery | C01 |
+**Status:** READY
+**Created:** 2026-05-09
+**Updated:** 2026-05-13
+**Completed:**
+**Goal:** Upgrade the starter from Prisma 5 → Prisma 7 and NextAuth v4 → NextAuth v5 (Auth.js) while the app is pre-production.
+**Sprint detail:** [sprint-i02-prisma7-nextauth-v5.md](sprints/sprint-i02-prisma7-nextauth-v5.md)
 
----
-
-## Worked example (read-only)
-
-The repo ships with a filled **example** detail document so you can see the full layout (spec + tasks + task IDs) without affecting your real backlog counts:
-
-- **Sprint detail:** [sprint-f00-starter-workflow-example.md](sprints/sprint-f00-starter-workflow-example.md)
-
-Treat **F00** as documentation only — copy the structure, not the product requirements.
+- [ ] Bump Prisma packages to v7; add `prisma.config.ts`; migrate `src/lib/db.ts` to adapter pattern
+- [ ] Upgrade `next-auth` to v5; swap adapter; pin `@auth/core` override
+- [ ] Update auth config, route handler, middleware, and session helpers to v5 API
+- [ ] Rename `NEXTAUTH_SECRET` → `AUTH_SECRET`
+- [ ] Build passes with zero type errors; smoke test auth flow ✓
 
 ---
 
-## Current sprints
+## Feature Sprints
 
-### 01 — Your first real sprint
-
-**Status:** READY  
-**Created:** YYYY-MM-DD  
-**Updated:** YYYY-MM-DD  
-**Completed:**  
-**Goal:** Ship one small, end-to-end change so the team agrees on how backlog → code → done works.
-
-- [ ] Replace this goal and the tasks below with your actual scope.
-- [ ] Optionally run `/sprint-plan` to generate `workflow/sprints/sprint-…-….md` and add a `**Sprint detail:**` line here.
-- [ ] Implement and verify.
-- [ ] Mark this sprint `DONE` when finished.
+_None planned._
 
 ---
 
-### F00 — Example detail doc (template only)
+## Client Sprints
 
-**Status:** DONE  
-**Created:** 2026-05-12  
-**Updated:** 2026-05-12  
-**Completed:** 2026-05-12  
-**Goal:** Illustrate what a sprint detail file looks like for this repository (not real product work).  
-**Sprint detail:** [sprint-f00-starter-workflow-example.md](sprints/sprint-f00-starter-workflow-example.md)
+_None planned._
 
-- [x] Example tasks — see the linked file for the full checklist.
+---
+
+## Bug Fix Sprints
+
+_None yet._
+
+---
+
+## Documentation Sprints
+
+_None yet._
+
+---
+
+## Recently Completed
+
+Entries move here when done. Full history is in `workflow/complete.md`.
