@@ -6,7 +6,7 @@ AI entry point for this project. Read this file first. Deep-dive docs live in [`
 
 ## Stack
 
-**Framework:** Next.js 14 (App Router) | **API:** tRPC v11 + TanStack Query v5 | **Database:** Prisma 5 + Postgres | **Auth:** NextAuth v4 (JWT + Google OAuth) | **UI:** Radix UI + shadcn/ui + Tailwind CSS v3 | **Forms:** React Hook Form + Zod
+**Framework:** Next.js 14 (App Router) | **API:** tRPC v11 + TanStack Query v5 | **Database:** Prisma 7 + Postgres | **Auth:** NextAuth v5 / Auth.js (JWT + Google OAuth) | **UI:** Radix UI + shadcn/ui + Tailwind CSS v3 | **Forms:** React Hook Form + Zod
 
 ---
 
@@ -100,7 +100,7 @@ DATABASE_URL=
 
 # Auth
 NEXTAUTH_URL=
-NEXTAUTH_SECRET=
+AUTH_SECRET=
 GOOGLE_CLIENT_ID=
 GOOGLE_CLIENT_SECRET=
 

@@ -120,9 +120,9 @@ The starter ships with Prisma 5 and NextAuth v4. Both have major version upgrade
   - [x] I02.8.1 Update `src/lib/auth/` session helpers to `NextAuth(config)` init pattern
   - [x] I02.8.2 Ensure `getSession()` wrapper and `getCurrentUser()` are compatible with v5
   - [x] I02.8.3 Verify `src/types/next-auth.d.ts` module augmentation paths are unchanged in v5
-- [ ] I02.9 Update env vars and `.env.example`
-  - [ ] I02.9.1 Rename `NEXTAUTH_SECRET` → `AUTH_SECRET` in `.env.example`
-  - [ ] I02.9.2 Update `CLAUDE.md` stack reference (Prisma 5 → 7, NextAuth v4 → v5)
+- [x] I02.9 Update env vars and `.env.example`
+  - [x] I02.9.1 Rename `NEXTAUTH_SECRET` → `AUTH_SECRET` in `.env.example`
+  - [x] I02.9.2 Update `CLAUDE.md` stack reference (Prisma 5 → 7, NextAuth v4 → v5)
 - [ ] I02.10 Build verification and smoke test
   - [ ] I02.10.1 Run `npm run build` — confirm zero type errors
   - [ ] I02.10.2 Smoke test: sign in, session persists, dashboard protected route accessible
