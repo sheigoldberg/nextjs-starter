@@ -95,10 +95,10 @@ The starter ships with Prisma 5 and NextAuth v4. Both have major version upgrade
   - [x] I02.2.1 Create `prisma.config.ts` at project root using `defineConfig` with `DATABASE_URL` datasource override
   - [x] I02.2.2 Remove `output` directive from the `generator client` block in `prisma/schema.prisma`
   - [x] I02.2.3 Retain `datasource db { }` block in `schema.prisma` (provider required for native type resolution)
-- [ ] I02.3 Update `src/lib/db.ts` for Prisma 7 adapter pattern
-  - [ ] I02.3.1 Import `PrismaNeon` from `@prisma/adapter-neon` and `neon` from `@neondatabase/serverless`
-  - [ ] I02.3.2 Replace direct `new PrismaClient()` with adapter-based instantiation using `PrismaNeon`
-  - [ ] I02.3.3 Verify `log` array and singleton pattern are unchanged
+- [x] I02.3 Update `src/lib/db.ts` for Prisma 7 adapter pattern
+  - [x] I02.3.1 Import `PrismaNeon` from `@prisma/adapter-neon` and `neon` from `@neondatabase/serverless`
+  - [x] I02.3.2 Replace direct `new PrismaClient()` with adapter-based instantiation using `PrismaNeon`
+  - [x] I02.3.3 Verify `log` array and singleton pattern are unchanged
 - [ ] I02.4 Verify Prisma generates and pushes cleanly
   - [ ] I02.4.1 Run `npm run db:generate` and confirm client generates with no errors
   - [ ] I02.4.2 Run `npm run db:push` against a dev database and confirm schema applies correctly
