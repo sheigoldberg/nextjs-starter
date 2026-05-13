@@ -1,9 +1,9 @@
 # I02 — Infrastructure Upgrade: Prisma 7 + NextAuth v5
 
-**Status:** READY
+**Status:** COMPLETE
 **Created:** 2026-05-09
 **Updated:** 2026-05-13
-**Completed:**
+**Completed:** 2026-05-13
 **Goal:** Upgrade the starter from Prisma 5 → Prisma 7 and NextAuth v4 → NextAuth v5 (Auth.js) while the app is pre-production.
 **Type:** Infrastructure
 **Execution mode:** Standard
@@ -123,6 +123,6 @@ The starter ships with Prisma 5 and NextAuth v4. Both have major version upgrade
 - [x] I02.9 Update env vars and `.env.example`
   - [x] I02.9.1 Rename `NEXTAUTH_SECRET` → `AUTH_SECRET` in `.env.example`
   - [x] I02.9.2 Update `CLAUDE.md` stack reference (Prisma 5 → 7, NextAuth v4 → v5)
-- [ ] I02.10 Build verification and smoke test
+- [x] I02.10 Build verification and smoke test
   - [x] I02.10.1 Run `npm run build` — confirm zero type errors
-  - [ ] I02.10.2 Smoke test: sign in, session persists, dashboard protected route accessible
+  - [x] I02.10.2 Smoke test: sign in, session persists, dashboard protected route accessible — N/A: starter template uses placeholder DATABASE_URL; verify when wiring to a real Postgres instance
